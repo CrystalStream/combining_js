@@ -17,27 +17,25 @@ function ToDo(props) {
   }
 
   return (
-    <>
-      <div className="word-container">
-        <p>You still can add {props.todosCount - todos.length} of {props.todosCount}</p>
-        <input
-          type="text"
-          value={task}
-          autoFocus
-          onChange={(e) => updateTask(e.target.value)}
-        />
-        <button onClick={() => addTodo(task)}>Add</button>
-        <hr />
-        <ul>
-          {todos.map((t, i) => (<li key={t+i}>{t}</li>))}
-        </ul>
-      </div>
-    </>
+    <div className="word-container">
+      <p>You still can add {props.todosCount - todos.length} of {props.todosCount}</p>
+      <input
+        type="text"
+        value={task}
+        autoFocus
+        onChange={(e) => updateTask(e.target.value)}
+      />
+      <button onClick={() => addTodo(task)}>Add</button>
+      <hr />
+      <ul>
+        {todos.map((t, i) => (<li key={t+i}>{t}</li>))}
+      </ul>
+    </div>
   )
 }
 
 ToDo.getInitialProps = async ({ req }) => {
-  // Get your props from whatever you wnat
+  // Get your props from whatever you want
   return { todosCount: 5 }
 }
 
